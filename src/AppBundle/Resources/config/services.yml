@@ -1,0 +1,7 @@
+services:
+    app.service.api:
+        class: AppBundle\Service\Api
+        arguments: ['@Doctrine\ORM\EntityManagerInterface', '@service_container']
+        calls:
+            - [autoUpdate, ['@?']]
+            - [getRanking, ['@?']]

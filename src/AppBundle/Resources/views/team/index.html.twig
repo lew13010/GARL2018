@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-responsive-xl table-striped table-dark table-hover text-center">
+        <thead>
+        <tr>
+            <th>Equipes</th>
+            <th>Joueur 1</th>
+            <th>Joueur 2</th>
+            <th>Joueur 3</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            <tr>
+                <td><b>{{ team.name }}</b></td>
+                {% for gamer in team.gamers %}
+                    <td>
+                        <p><a href="https://rltracker.pro/profiles/{{ gamer.steamId }}/steam" class="text-white"
+                              target="_blank"><b>{{ gamer.name }}</b></a></p>
+                        <p>
+                            <img src="{{ asset('bundles/app/img/') }}{{ gamer.rank.tier.image }}.png" height="75"><br>
+                            <span class="small">{{ gamer.rank.tier.tierName }}</span><br>
+                            <span class="small">Division {{ gamer.rank.division.division }}</span><br>
+                            <span class="small">{{ gamer.rank.points }} pts - {{ gamer.rank.matchs }} Matchs</span><br>
+                        </p>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <ul>
+            <li>
+                <a href="{{ path('team_new') }}">Create a new team</a>
+            </li>
+        </ul>
+    {% endif %}
+
+{% endblock %}

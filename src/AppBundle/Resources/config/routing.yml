@@ -1,0 +1,7 @@
+app_team:
+    resource: "@AppBundle/Resources/config/routing/team.yml"
+    prefix:   /
+
+app_gamer:
+    resource: "@AppBundle/Resources/config/routing/gamer.yml"
+    prefix:   /gamer
