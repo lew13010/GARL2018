@@ -13,7 +13,7 @@
         <tbody>
         {% for team in teams %}
             <tr>
-                <td><b>{{ team.name }}</b></td>
+                <td style="vertical-align:middle"><b>{{ team.name }}</b></td>
                 {% for gamer in team.gamers %}
                     <td>
                         <p><a href="https://rltracker.pro/profiles/{{ gamer.steamId }}/steam" class="text-white"
