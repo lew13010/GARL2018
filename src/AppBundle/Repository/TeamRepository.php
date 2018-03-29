@@ -19,7 +19,7 @@ class TeamRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('g.rank', 'r')
             ->leftJoin('r.tier', 'tier')
             ->leftJoin('r.division', 'd')
-            ->addOrderBy('t.id', 'asc')
+            ->addOrderBy('t.name', 'asc')
             ->addOrderBy('g.id', 'asc')
         ;
         return $qb->getQuery()->getResult();
